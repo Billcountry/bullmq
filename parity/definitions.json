@@ -1,0 +1,79 @@
+[
+  {
+    "id": "simple-worker-test",
+    "name": "Simple Worker",
+    "description": "Tests a simple worker that picks up jobs from a queue and processes them",
+    "job": {
+      "count": 10
+    },
+    "worker": {},
+    "simulation": {},
+    "outcomes": {
+      "wait_time": {
+        "min": 0,
+        "max": 1000
+      },
+      "processing_time": {
+        "min": 0,
+        "max": 1000
+      },
+      "exec_counts": {
+        "start": 1,
+        "complete": 1
+      }
+    }
+  },
+  {
+    "id": "delayed-job-test",
+    "name": "Delayed Job",
+    "description": "Tests a delayed job that is added to a queue and processed after a specified delay",
+    "job": {
+      "count": 10,
+      "delay": 5000
+    },
+    "worker": {},
+    "simulation": {},
+    "outcomes": {
+      "wait_time": {
+        "min": 5000,
+        "max": 6000
+      },
+      "processing_time": {
+        "min": 0,
+        "max": 1000
+      },
+      "exec_counts": {
+        "start": 1,
+        "complete": 1
+      }
+    }
+  },
+  {
+    "id": "concurrency-test",
+    "name": "Concurrency",
+    "description": "Tests concurrent queue processing",
+    "job": {
+      "count": 100
+    },
+    "worker": {
+      "concurrency": 10
+    },
+    "simulation": {
+      "sleep": 1500
+    },
+    "outcomes": {
+      "wait_time": {
+        "min": 0,
+        "max": 1000
+      },
+      "processing_time": {
+        "min": 15000,
+        "max": 18000
+      },
+      "exec_counts": {
+        "start": 1,
+        "complete": 1
+      }
+    }
+  }
+]
